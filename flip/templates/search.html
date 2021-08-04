@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<div>
+<center><h3>Search Results</h3></center>
+			<div class="tm-paging-links">
+			</div>
+	<div class="w3-content " style="max-width:1000px">
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products...</h3>
+  </div>
+  <div class="w3-row-padding ">
+    {% for i in pr %}
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <a href="{{i.get_url}}"><img src="{{i.img.url}}" alt="image" style="height:200px;width:200px;"></a>
+      <h3>{{i.name}}</h3>
+      <p class="w3-opacity">₹ {{i.price}}</p>
+      <p>{{i.desc |truncatewords:3 }}</p>
+
+    </div>
+     {% endfor %}
+
+</div>
+
+<!--				<div id="tm-gallery-page-pizza" class="tm-gallery-page">-->
+<!--					{% for i in pr %}-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<a href="{{i.get_url}}"><img src="{{i.img.url}}" alt="Image" class="img-fluid tm-gallery-img"  /></a>-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">{{i.name}}</h4>-->
+<!--								<p class="tm-gallery-description">{{i.desc |truncatewords:10}}</p>-->
+<!--								<p class="tm-gallery-price">₹ {{i.price}}</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					{% endfor %}-->
+<!--				</div>-->
+<!--            </div>-->
+</body>
+</html>
